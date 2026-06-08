@@ -3,6 +3,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 
 import { KubernetesClusterService } from "./gen/enum/api/v1/kubernetes_clusters_service_connect.js";
 import { ObjectStorageAccessKeyService } from "./gen/enum/api/v1/object_storage_access_keys_service_connect.js";
+import { ObjectStorageBucketService } from "./gen/enum/api/v1/object_storage_buckets_service_connect.js";
 import { ObjectStorageUserService } from "./gen/enum/api/v1/object_storage_users_service_connect.js";
 import { OrganizationService } from "./gen/enum/api/v1/organizations_service_connect.js";
 import { ProjectService } from "./gen/enum/api/v1/projects_service_connect.js";
@@ -41,6 +42,7 @@ export interface Client {
   objectStorage: {
     users: PromiseClient<typeof ObjectStorageUserService>;
     accessKeys: PromiseClient<typeof ObjectStorageAccessKeyService>;
+    buckets: PromiseClient<typeof ObjectStorageBucketService>;
   };
 }
 
@@ -65,6 +67,7 @@ export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOption
     objectStorage: {
       users: createConnectClient(ObjectStorageUserService, transport),
       accessKeys: createConnectClient(ObjectStorageAccessKeyService, transport),
+      buckets: createConnectClient(ObjectStorageBucketService, transport),
     },
   };
 }
