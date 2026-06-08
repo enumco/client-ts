@@ -28,9 +28,9 @@ const { project } = await client.projects.getProject({ id: "proj-456" });
 | `client.organizations` | OrganizationService |
 | `client.projects` | ProjectService |
 | `client.kubernetes.clusters` | KubernetesClusterService |
-| `client.objectStorage.users` | ObjectStorageUserService |
-| `client.objectStorage.accessKeys` | ObjectStorageAccessKeyService |
-| `client.objectStorage.buckets` | ObjectStorageBucketService |
+| `client.storage.users` | ObjectStorageUserService |
+| `client.storage.accessKeys` | ObjectStorageAccessKeyService |
+| `client.storage.buckets` | ObjectStorageBucketService |
 
 ## Options
 

@@ -15,6 +15,8 @@ export * from "./gen/enum/api/v1/kubernetes_clusters_pb.js";
 export * from "./gen/enum/api/v1/kubernetes_clusters_service_pb.js";
 export * from "./gen/enum/api/v1/object_storage_access_keys_pb.js";
 export * from "./gen/enum/api/v1/object_storage_access_keys_service_pb.js";
+export * from "./gen/enum/api/v1/object_storage_buckets_pb.js";
+export * from "./gen/enum/api/v1/object_storage_buckets_service_pb.js";
 export * from "./gen/enum/api/v1/object_storage_users_pb.js";
 export * from "./gen/enum/api/v1/object_storage_users_service_pb.js";
 export * from "./gen/enum/api/v1/organizations_pb.js";
@@ -39,7 +41,7 @@ export interface Client {
   kubernetes: {
     clusters: PromiseClient<typeof KubernetesClusterService>;
   };
-  objectStorage: {
+  storage: {
     users: PromiseClient<typeof ObjectStorageUserService>;
     accessKeys: PromiseClient<typeof ObjectStorageAccessKeyService>;
     buckets: PromiseClient<typeof ObjectStorageBucketService>;
@@ -64,7 +66,7 @@ export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOption
     kubernetes: {
       clusters: createConnectClient(KubernetesClusterService, transport),
     },
-    objectStorage: {
+    storage: {
       users: createConnectClient(ObjectStorageUserService, transport),
       accessKeys: createConnectClient(ObjectStorageAccessKeyService, transport),
       buckets: createConnectClient(ObjectStorageBucketService, transport),
