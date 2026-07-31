@@ -184,9 +184,20 @@ export class CreateObjectStorageUserRequest extends Message<CreateObjectStorageU
   projectId = "";
 
   /**
-   * @generated from field: string display_name = 2;
+   * Deprecated: use `name` instead. Still accepted for backwards compatibility
+   * and will be removed in a future API version.
+   *
+   * @generated from field: string display_name = 2 [deprecated = true];
+   * @deprecated
    */
   displayName = "";
+
+  /**
+   * Unique name of the object storage user within the project. Replaces `display_name`.
+   *
+   * @generated from field: string name = 3;
+   */
+  name = "";
 
   constructor(data?: PartialMessage<CreateObjectStorageUserRequest>) {
     super();
@@ -198,6 +209,7 @@ export class CreateObjectStorageUserRequest extends Message<CreateObjectStorageU
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "display_name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateObjectStorageUserRequest {
@@ -269,9 +281,20 @@ export class UpdateObjectStorageUserRequest extends Message<UpdateObjectStorageU
   id = "";
 
   /**
-   * @generated from field: string display_name = 3;
+   * Deprecated: use `name` instead. Still accepted for backwards compatibility
+   * and will be removed in a future API version.
+   *
+   * @generated from field: string display_name = 3 [deprecated = true];
+   * @deprecated
    */
   displayName = "";
+
+  /**
+   * Unique name of the object storage user within the project. Replaces `display_name`.
+   *
+   * @generated from field: string name = 4;
+   */
+  name = "";
 
   constructor(data?: PartialMessage<UpdateObjectStorageUserRequest>) {
     super();
@@ -284,6 +307,7 @@ export class UpdateObjectStorageUserRequest extends Message<UpdateObjectStorageU
     { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "display_name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateObjectStorageUserRequest {

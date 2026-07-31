@@ -1,6 +1,7 @@
 import { createClient as createConnectClient, type PromiseClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 
+import { DnsService } from "./gen/enum/api/v1/dns_service_connect.js";
 import { KubernetesClusterService } from "./gen/enum/api/v1/kubernetes_clusters_service_connect.js";
 import { ObjectStorageAccessKeyService } from "./gen/enum/api/v1/object_storage_access_keys_service_connect.js";
 import { ObjectStorageBucketService } from "./gen/enum/api/v1/object_storage_buckets_service_connect.js";
@@ -11,6 +12,8 @@ import { UserService } from "./gen/enum/api/v1/users_service_connect.js";
 
 // Re-export all service definitions and message types
 export * from "./gen/enum/api/v1/common_pb.js";
+export * from "./gen/enum/api/v1/dns_pb.js";
+export * from "./gen/enum/api/v1/dns_service_pb.js";
 export * from "./gen/enum/api/v1/kubernetes_clusters_pb.js";
 export * from "./gen/enum/api/v1/kubernetes_clusters_service_pb.js";
 export * from "./gen/enum/api/v1/object_storage_access_keys_pb.js";
@@ -25,7 +28,7 @@ export * from "./gen/enum/api/v1/projects_pb.js";
 export * from "./gen/enum/api/v1/projects_service_pb.js";
 export * from "./gen/enum/api/v1/users_pb.js";
 export * from "./gen/enum/api/v1/users_service_pb.js";
-export { KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, UserService };
+export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, UserService };
 
 const DEFAULT_BASE_URL = "https://api.enum.co";
 
@@ -38,6 +41,7 @@ export interface Client {
   users: PromiseClient<typeof UserService>;
   organizations: PromiseClient<typeof OrganizationService>;
   projects: PromiseClient<typeof ProjectService>;
+  dns: PromiseClient<typeof DnsService>;
   kubernetes: {
     clusters: PromiseClient<typeof KubernetesClusterService>;
   };
@@ -63,6 +67,7 @@ export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOption
     users: createConnectClient(UserService, transport),
     organizations: createConnectClient(OrganizationService, transport),
     projects: createConnectClient(ProjectService, transport),
+    dns: createConnectClient(DnsService, transport),
     kubernetes: {
       clusters: createConnectClient(KubernetesClusterService, transport),
     },

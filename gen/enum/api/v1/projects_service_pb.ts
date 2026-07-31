@@ -14,6 +14,9 @@ import { User } from "./users_pb.js";
  */
 export class ListProjectsRequest extends Message<ListProjectsRequest> {
   /**
+   * Optional organization filter. When empty, returns projects across every
+   * organization the caller has access to.
+   *
    * @generated from field: string org_id = 1;
    */
   orgId = "";

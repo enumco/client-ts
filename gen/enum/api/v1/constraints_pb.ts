@@ -140,3 +140,50 @@ export const s3bucket_name = proto2.makeExtension<StringRules, boolean>(
   { no: 80017, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
 );
 
+/**
+ * DNS zone ID (TypeID: dnszone-{base32_ulid}).
+ *
+ * @generated from extension: optional bool dnszone_id = 80018;
+ */
+export const dnszone_id = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.dnszone_id", 
+  StringRules, 
+  { no: 80018, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
+ * DNS record ID (TypeID: dnsrecord-{base32_ulid}).
+ *
+ * @generated from extension: optional bool dnsrecord_id = 80019;
+ */
+export const dnsrecord_id = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.dnsrecord_id", 
+  StringRules, 
+  { no: 80019, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
+ * DNS zone apex name: fully qualified domain, 1-253 chars, lowercase.
+ *
+ * @generated from extension: optional bool dns_zone_name = 80020;
+ */
+export const dns_zone_name = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.dns_zone_name", 
+  StringRules, 
+  { no: 80020, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
+ * DNS record owner name: an FQDN, 1-253 chars. Allows wildcards and
+ * underscore labels (e.g. *.example.com, _acme-challenge.example.com). The
+ * apex is addressed by the zone name itself. Rigorous per-type validation
+ * happens server-side.
+ *
+ * @generated from extension: optional bool dns_record_name = 80021;
+ */
+export const dns_record_name = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.dns_record_name", 
+  StringRules, 
+  { no: 80021, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+

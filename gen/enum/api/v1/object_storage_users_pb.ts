@@ -22,7 +22,11 @@ export class ObjectStorageUser extends Message<ObjectStorageUser> {
   projectId = "";
 
   /**
-   * @generated from field: string display_name = 3;
+   * Deprecated: use `name` instead. This field is still populated on responses
+   * for backwards compatibility and will be removed in a future API version.
+   *
+   * @generated from field: string display_name = 3 [deprecated = true];
+   * @deprecated
    */
   displayName = "";
 
@@ -46,6 +50,13 @@ export class ObjectStorageUser extends Message<ObjectStorageUser> {
    */
   status = ResourceStatus.UNSPECIFIED;
 
+  /**
+   * Unique name of the object storage user within the project. Replaces `display_name`.
+   *
+   * @generated from field: string name = 8;
+   */
+  name = "";
+
   constructor(data?: PartialMessage<ObjectStorageUser>) {
     super();
     proto3.util.initPartial(data, this);
@@ -61,6 +72,7 @@ export class ObjectStorageUser extends Message<ObjectStorageUser> {
     { no: 5, name: "created_at", kind: "message", T: Timestamp },
     { no: 6, name: "updated_at", kind: "message", T: Timestamp },
     { no: 7, name: "status", kind: "enum", T: proto3.getEnumType(ResourceStatus) },
+    { no: 8, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageUser {
