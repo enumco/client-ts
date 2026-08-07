@@ -175,6 +175,13 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
    */
   name = "";
 
+  /**
+   * Region for the bucket. When empty, the project's default_region_id is used.
+   *
+   * @generated from field: string region_id = 3;
+   */
+  regionId = "";
+
   constructor(data?: PartialMessage<CreateObjectStorageBucketRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -185,6 +192,7 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateObjectStorageBucketRequest {

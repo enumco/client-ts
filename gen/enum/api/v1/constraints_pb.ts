@@ -187,3 +187,25 @@ export const dns_record_name = proto2.makeExtension<StringRules, boolean>(
   { no: 80021, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
 );
 
+/**
+ * Region code (e.g. fra)
+ *
+ * @generated from extension: optional bool region_code = 80022;
+ */
+export const region_code = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.region_code", 
+  StringRules, 
+  { no: 80022, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
+ * Availability zone code (e.g. fra-a)
+ *
+ * @generated from extension: optional bool zone_code = 80023;
+ */
+export const zone_code = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.zone_code", 
+  StringRules, 
+  { no: 80023, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+

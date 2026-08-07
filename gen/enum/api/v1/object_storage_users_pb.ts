@@ -57,6 +57,13 @@ export class ObjectStorageUser extends Message<ObjectStorageUser> {
    */
   name = "";
 
+  /**
+   * Region where the user lives (e.g. "fra").
+   *
+   * @generated from field: string region_id = 9;
+   */
+  regionId = "";
+
   constructor(data?: PartialMessage<ObjectStorageUser>) {
     super();
     proto3.util.initPartial(data, this);
@@ -73,6 +80,7 @@ export class ObjectStorageUser extends Message<ObjectStorageUser> {
     { no: 6, name: "updated_at", kind: "message", T: Timestamp },
     { no: 7, name: "status", kind: "enum", T: proto3.getEnumType(ResourceStatus) },
     { no: 8, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageUser {

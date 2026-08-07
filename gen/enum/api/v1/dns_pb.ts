@@ -149,6 +149,14 @@ export class DnssecStatus extends Message<DnssecStatus> {
    */
   dsPublishedAt?: Timestamp;
 
+  /**
+   * Zone signing keys in DNSKEY presentation format ("flag protocol algorithm
+   * public_key"), for registrars that take a key instead of a DS digest.
+   *
+   * @generated from field: repeated string dnskey = 6;
+   */
+  dnskey: string[] = [];
+
   constructor(data?: PartialMessage<DnssecStatus>) {
     super();
     proto3.util.initPartial(data, this);
@@ -162,6 +170,7 @@ export class DnssecStatus extends Message<DnssecStatus> {
     { no: 3, name: "ds", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 4, name: "ds_published", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
     { no: 5, name: "ds_published_at", kind: "message", T: Timestamp },
+    { no: 6, name: "dnskey", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DnssecStatus {

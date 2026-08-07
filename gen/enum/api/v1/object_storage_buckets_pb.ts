@@ -46,6 +46,13 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
    */
   status = ResourceStatus.UNSPECIFIED;
 
+  /**
+   * Region where the bucket lives (e.g. "fra").
+   *
+   * @generated from field: string region_id = 8;
+   */
+  regionId = "";
+
   constructor(data?: PartialMessage<ObjectStorageBucket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -61,6 +68,7 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
     { no: 5, name: "created_at", kind: "message", T: Timestamp },
     { no: 6, name: "updated_at", kind: "message", T: Timestamp },
     { no: 7, name: "status", kind: "enum", T: proto3.getEnumType(ResourceStatus) },
+    { no: 8, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageBucket {

@@ -45,6 +45,20 @@ export class Project extends Message<Project> {
    */
   updatedAt?: Timestamp;
 
+  /**
+   * Default region for regional resource creates when the request omits region_id.
+   *
+   * @generated from field: string default_region_id = 8;
+   */
+  defaultRegionId = "";
+
+  /**
+   * Default availability zone for zonal resource creates when the request omits zone_id.
+   *
+   * @generated from field: string default_zone_id = 9;
+   */
+  defaultZoneId = "";
+
   constructor(data?: PartialMessage<Project>) {
     super();
     proto3.util.initPartial(data, this);
@@ -60,6 +74,8 @@ export class Project extends Message<Project> {
     { no: 5, name: "labels", kind: "map", K: 9 /* ScalarType.STRING */, V: {kind: "scalar", T: 9 /* ScalarType.STRING */} },
     { no: 6, name: "created_at", kind: "message", T: Timestamp },
     { no: 7, name: "updated_at", kind: "message", T: Timestamp },
+    { no: 8, name: "default_region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "default_zone_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Project {

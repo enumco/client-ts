@@ -199,6 +199,13 @@ export class CreateObjectStorageUserRequest extends Message<CreateObjectStorageU
    */
   name = "";
 
+  /**
+   * Region for the user. When empty, the project's default_region_id is used.
+   *
+   * @generated from field: string region_id = 4;
+   */
+  regionId = "";
+
   constructor(data?: PartialMessage<CreateObjectStorageUserRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -210,6 +217,7 @@ export class CreateObjectStorageUserRequest extends Message<CreateObjectStorageU
     { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "display_name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateObjectStorageUserRequest {
