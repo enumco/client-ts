@@ -141,6 +141,17 @@ export const s3bucket_name = proto2.makeExtension<StringRules, boolean>(
 );
 
 /**
+ * Object storage policy ID (TypeID: s3policy-{base32_ulid}).
+ *
+ * @generated from extension: optional bool s3policy_id = 80024;
+ */
+export const s3policy_id = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.s3policy_id", 
+  StringRules, 
+  { no: 80024, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
  * DNS zone ID (TypeID: dnszone-{base32_ulid}).
  *
  * @generated from extension: optional bool dnszone_id = 80018;

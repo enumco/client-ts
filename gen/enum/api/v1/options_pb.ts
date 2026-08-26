@@ -14,3 +14,15 @@ export const require_auth = proto3.makeExtension<MethodOptions, boolean>(
   { no: 50000, kind: "scalar", T: 8 /* ScalarType.BOOL */ },
 );
 
+/**
+ * rate_limit is the cost class charged for calling the method: read, write
+ * or expensive.
+ *
+ * @generated from extension: string rate_limit = 50002;
+ */
+export const rate_limit = proto3.makeExtension<MethodOptions, string>(
+  "enum.api.v1.rate_limit", 
+  MethodOptions, 
+  { no: 50002, kind: "scalar", T: 9 /* ScalarType.STRING */ },
+);
+

@@ -182,6 +182,13 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
    */
   regionId = "";
 
+  /**
+   * Enable Object Lock at create time. Cannot be enabled after the bucket exists.
+   *
+   * @generated from field: bool object_lock_enabled = 4;
+   */
+  objectLockEnabled = false;
+
   constructor(data?: PartialMessage<CreateObjectStorageBucketRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -193,6 +200,7 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
     { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "object_lock_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateObjectStorageBucketRequest {
@@ -320,6 +328,1012 @@ export class DeleteObjectStorageBucketResponse extends Message<DeleteObjectStora
 
   static equals(a: DeleteObjectStorageBucketResponse | PlainMessage<DeleteObjectStorageBucketResponse> | undefined, b: DeleteObjectStorageBucketResponse | PlainMessage<DeleteObjectStorageBucketResponse> | undefined): boolean {
     return proto3.util.equals(DeleteObjectStorageBucketResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketVersioningRequest
+ */
+export class PutObjectStorageBucketVersioningRequest extends Message<PutObjectStorageBucketVersioningRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * Enabled or Suspended.
+   *
+   * @generated from field: string status = 3;
+   */
+  status = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketVersioningRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketVersioningRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "status", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketVersioningRequest {
+    return new PutObjectStorageBucketVersioningRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketVersioningRequest {
+    return new PutObjectStorageBucketVersioningRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketVersioningRequest {
+    return new PutObjectStorageBucketVersioningRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketVersioningRequest | PlainMessage<PutObjectStorageBucketVersioningRequest> | undefined, b: PutObjectStorageBucketVersioningRequest | PlainMessage<PutObjectStorageBucketVersioningRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketVersioningRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketVersioningResponse
+ */
+export class PutObjectStorageBucketVersioningResponse extends Message<PutObjectStorageBucketVersioningResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketVersioningResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketVersioningResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketVersioningResponse {
+    return new PutObjectStorageBucketVersioningResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketVersioningResponse {
+    return new PutObjectStorageBucketVersioningResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketVersioningResponse {
+    return new PutObjectStorageBucketVersioningResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketVersioningResponse | PlainMessage<PutObjectStorageBucketVersioningResponse> | undefined, b: PutObjectStorageBucketVersioningResponse | PlainMessage<PutObjectStorageBucketVersioningResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketVersioningResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketObjectLockRequest
+ */
+export class PutObjectStorageBucketObjectLockRequest extends Message<PutObjectStorageBucketObjectLockRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * Object Lock configuration XML document.
+   *
+   * @generated from field: string configuration = 3;
+   */
+  configuration = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketObjectLockRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketObjectLockRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "configuration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketObjectLockRequest {
+    return new PutObjectStorageBucketObjectLockRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketObjectLockRequest {
+    return new PutObjectStorageBucketObjectLockRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketObjectLockRequest {
+    return new PutObjectStorageBucketObjectLockRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketObjectLockRequest | PlainMessage<PutObjectStorageBucketObjectLockRequest> | undefined, b: PutObjectStorageBucketObjectLockRequest | PlainMessage<PutObjectStorageBucketObjectLockRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketObjectLockRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketObjectLockResponse
+ */
+export class PutObjectStorageBucketObjectLockResponse extends Message<PutObjectStorageBucketObjectLockResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketObjectLockResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketObjectLockResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketObjectLockResponse {
+    return new PutObjectStorageBucketObjectLockResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketObjectLockResponse {
+    return new PutObjectStorageBucketObjectLockResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketObjectLockResponse {
+    return new PutObjectStorageBucketObjectLockResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketObjectLockResponse | PlainMessage<PutObjectStorageBucketObjectLockResponse> | undefined, b: PutObjectStorageBucketObjectLockResponse | PlainMessage<PutObjectStorageBucketObjectLockResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketObjectLockResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketEncryptionRequest
+ */
+export class PutObjectStorageBucketEncryptionRequest extends Message<PutObjectStorageBucketEncryptionRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * @generated from field: string configuration = 3;
+   */
+  configuration = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketEncryptionRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketEncryptionRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "configuration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketEncryptionRequest {
+    return new PutObjectStorageBucketEncryptionRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketEncryptionRequest {
+    return new PutObjectStorageBucketEncryptionRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketEncryptionRequest {
+    return new PutObjectStorageBucketEncryptionRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketEncryptionRequest | PlainMessage<PutObjectStorageBucketEncryptionRequest> | undefined, b: PutObjectStorageBucketEncryptionRequest | PlainMessage<PutObjectStorageBucketEncryptionRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketEncryptionRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketEncryptionResponse
+ */
+export class PutObjectStorageBucketEncryptionResponse extends Message<PutObjectStorageBucketEncryptionResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketEncryptionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketEncryptionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketEncryptionResponse {
+    return new PutObjectStorageBucketEncryptionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketEncryptionResponse {
+    return new PutObjectStorageBucketEncryptionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketEncryptionResponse {
+    return new PutObjectStorageBucketEncryptionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketEncryptionResponse | PlainMessage<PutObjectStorageBucketEncryptionResponse> | undefined, b: PutObjectStorageBucketEncryptionResponse | PlainMessage<PutObjectStorageBucketEncryptionResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketEncryptionResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketEncryptionRequest
+ */
+export class DeleteObjectStorageBucketEncryptionRequest extends Message<DeleteObjectStorageBucketEncryptionRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketEncryptionRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketEncryptionRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketEncryptionRequest {
+    return new DeleteObjectStorageBucketEncryptionRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketEncryptionRequest {
+    return new DeleteObjectStorageBucketEncryptionRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketEncryptionRequest {
+    return new DeleteObjectStorageBucketEncryptionRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketEncryptionRequest | PlainMessage<DeleteObjectStorageBucketEncryptionRequest> | undefined, b: DeleteObjectStorageBucketEncryptionRequest | PlainMessage<DeleteObjectStorageBucketEncryptionRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketEncryptionRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketEncryptionResponse
+ */
+export class DeleteObjectStorageBucketEncryptionResponse extends Message<DeleteObjectStorageBucketEncryptionResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketEncryptionResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketEncryptionResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketEncryptionResponse {
+    return new DeleteObjectStorageBucketEncryptionResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketEncryptionResponse {
+    return new DeleteObjectStorageBucketEncryptionResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketEncryptionResponse {
+    return new DeleteObjectStorageBucketEncryptionResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketEncryptionResponse | PlainMessage<DeleteObjectStorageBucketEncryptionResponse> | undefined, b: DeleteObjectStorageBucketEncryptionResponse | PlainMessage<DeleteObjectStorageBucketEncryptionResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketEncryptionResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketLifecycleRequest
+ */
+export class PutObjectStorageBucketLifecycleRequest extends Message<PutObjectStorageBucketLifecycleRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * @generated from field: string configuration = 3;
+   */
+  configuration = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketLifecycleRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketLifecycleRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "configuration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketLifecycleRequest {
+    return new PutObjectStorageBucketLifecycleRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketLifecycleRequest {
+    return new PutObjectStorageBucketLifecycleRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketLifecycleRequest {
+    return new PutObjectStorageBucketLifecycleRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketLifecycleRequest | PlainMessage<PutObjectStorageBucketLifecycleRequest> | undefined, b: PutObjectStorageBucketLifecycleRequest | PlainMessage<PutObjectStorageBucketLifecycleRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketLifecycleRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketLifecycleResponse
+ */
+export class PutObjectStorageBucketLifecycleResponse extends Message<PutObjectStorageBucketLifecycleResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketLifecycleResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketLifecycleResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketLifecycleResponse {
+    return new PutObjectStorageBucketLifecycleResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketLifecycleResponse {
+    return new PutObjectStorageBucketLifecycleResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketLifecycleResponse {
+    return new PutObjectStorageBucketLifecycleResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketLifecycleResponse | PlainMessage<PutObjectStorageBucketLifecycleResponse> | undefined, b: PutObjectStorageBucketLifecycleResponse | PlainMessage<PutObjectStorageBucketLifecycleResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketLifecycleResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketLifecycleRequest
+ */
+export class DeleteObjectStorageBucketLifecycleRequest extends Message<DeleteObjectStorageBucketLifecycleRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketLifecycleRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketLifecycleRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketLifecycleRequest {
+    return new DeleteObjectStorageBucketLifecycleRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketLifecycleRequest {
+    return new DeleteObjectStorageBucketLifecycleRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketLifecycleRequest {
+    return new DeleteObjectStorageBucketLifecycleRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketLifecycleRequest | PlainMessage<DeleteObjectStorageBucketLifecycleRequest> | undefined, b: DeleteObjectStorageBucketLifecycleRequest | PlainMessage<DeleteObjectStorageBucketLifecycleRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketLifecycleRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketLifecycleResponse
+ */
+export class DeleteObjectStorageBucketLifecycleResponse extends Message<DeleteObjectStorageBucketLifecycleResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketLifecycleResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketLifecycleResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketLifecycleResponse {
+    return new DeleteObjectStorageBucketLifecycleResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketLifecycleResponse {
+    return new DeleteObjectStorageBucketLifecycleResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketLifecycleResponse {
+    return new DeleteObjectStorageBucketLifecycleResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketLifecycleResponse | PlainMessage<DeleteObjectStorageBucketLifecycleResponse> | undefined, b: DeleteObjectStorageBucketLifecycleResponse | PlainMessage<DeleteObjectStorageBucketLifecycleResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketLifecycleResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketCORSRequest
+ */
+export class PutObjectStorageBucketCORSRequest extends Message<PutObjectStorageBucketCORSRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * @generated from field: string configuration = 3;
+   */
+  configuration = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketCORSRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketCORSRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "configuration", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketCORSRequest {
+    return new PutObjectStorageBucketCORSRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketCORSRequest {
+    return new PutObjectStorageBucketCORSRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketCORSRequest {
+    return new PutObjectStorageBucketCORSRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketCORSRequest | PlainMessage<PutObjectStorageBucketCORSRequest> | undefined, b: PutObjectStorageBucketCORSRequest | PlainMessage<PutObjectStorageBucketCORSRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketCORSRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketCORSResponse
+ */
+export class PutObjectStorageBucketCORSResponse extends Message<PutObjectStorageBucketCORSResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketCORSResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketCORSResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketCORSResponse {
+    return new PutObjectStorageBucketCORSResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketCORSResponse {
+    return new PutObjectStorageBucketCORSResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketCORSResponse {
+    return new PutObjectStorageBucketCORSResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketCORSResponse | PlainMessage<PutObjectStorageBucketCORSResponse> | undefined, b: PutObjectStorageBucketCORSResponse | PlainMessage<PutObjectStorageBucketCORSResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketCORSResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketCORSRequest
+ */
+export class DeleteObjectStorageBucketCORSRequest extends Message<DeleteObjectStorageBucketCORSRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketCORSRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketCORSRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketCORSRequest {
+    return new DeleteObjectStorageBucketCORSRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketCORSRequest {
+    return new DeleteObjectStorageBucketCORSRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketCORSRequest {
+    return new DeleteObjectStorageBucketCORSRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketCORSRequest | PlainMessage<DeleteObjectStorageBucketCORSRequest> | undefined, b: DeleteObjectStorageBucketCORSRequest | PlainMessage<DeleteObjectStorageBucketCORSRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketCORSRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketCORSResponse
+ */
+export class DeleteObjectStorageBucketCORSResponse extends Message<DeleteObjectStorageBucketCORSResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketCORSResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketCORSResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketCORSResponse {
+    return new DeleteObjectStorageBucketCORSResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketCORSResponse {
+    return new DeleteObjectStorageBucketCORSResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketCORSResponse {
+    return new DeleteObjectStorageBucketCORSResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketCORSResponse | PlainMessage<DeleteObjectStorageBucketCORSResponse> | undefined, b: DeleteObjectStorageBucketCORSResponse | PlainMessage<DeleteObjectStorageBucketCORSResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketCORSResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketPolicyRequest
+ */
+export class PutObjectStorageBucketPolicyRequest extends Message<PutObjectStorageBucketPolicyRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * @generated from field: string policy = 3;
+   */
+  policy = "";
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketPolicyRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketPolicyRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "policy", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketPolicyRequest {
+    return new PutObjectStorageBucketPolicyRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketPolicyRequest {
+    return new PutObjectStorageBucketPolicyRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketPolicyRequest {
+    return new PutObjectStorageBucketPolicyRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketPolicyRequest | PlainMessage<PutObjectStorageBucketPolicyRequest> | undefined, b: PutObjectStorageBucketPolicyRequest | PlainMessage<PutObjectStorageBucketPolicyRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketPolicyRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketPolicyResponse
+ */
+export class PutObjectStorageBucketPolicyResponse extends Message<PutObjectStorageBucketPolicyResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketPolicyResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketPolicyResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketPolicyResponse {
+    return new PutObjectStorageBucketPolicyResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketPolicyResponse {
+    return new PutObjectStorageBucketPolicyResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketPolicyResponse {
+    return new PutObjectStorageBucketPolicyResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketPolicyResponse | PlainMessage<PutObjectStorageBucketPolicyResponse> | undefined, b: PutObjectStorageBucketPolicyResponse | PlainMessage<PutObjectStorageBucketPolicyResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketPolicyResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketPolicyRequest
+ */
+export class DeleteObjectStorageBucketPolicyRequest extends Message<DeleteObjectStorageBucketPolicyRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketPolicyRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketPolicyRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketPolicyRequest {
+    return new DeleteObjectStorageBucketPolicyRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketPolicyRequest {
+    return new DeleteObjectStorageBucketPolicyRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketPolicyRequest {
+    return new DeleteObjectStorageBucketPolicyRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketPolicyRequest | PlainMessage<DeleteObjectStorageBucketPolicyRequest> | undefined, b: DeleteObjectStorageBucketPolicyRequest | PlainMessage<DeleteObjectStorageBucketPolicyRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketPolicyRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketPolicyResponse
+ */
+export class DeleteObjectStorageBucketPolicyResponse extends Message<DeleteObjectStorageBucketPolicyResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketPolicyResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketPolicyResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketPolicyResponse {
+    return new DeleteObjectStorageBucketPolicyResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketPolicyResponse {
+    return new DeleteObjectStorageBucketPolicyResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketPolicyResponse {
+    return new DeleteObjectStorageBucketPolicyResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketPolicyResponse | PlainMessage<DeleteObjectStorageBucketPolicyResponse> | undefined, b: DeleteObjectStorageBucketPolicyResponse | PlainMessage<DeleteObjectStorageBucketPolicyResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketPolicyResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketTaggingRequest
+ */
+export class PutObjectStorageBucketTaggingRequest extends Message<PutObjectStorageBucketTaggingRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * @generated from field: map<string, string> tags = 3;
+   */
+  tags: { [key: string]: string } = {};
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketTaggingRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketTaggingRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "tags", kind: "map", K: 9 /* ScalarType.STRING */, V: {kind: "scalar", T: 9 /* ScalarType.STRING */} },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketTaggingRequest {
+    return new PutObjectStorageBucketTaggingRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketTaggingRequest {
+    return new PutObjectStorageBucketTaggingRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketTaggingRequest {
+    return new PutObjectStorageBucketTaggingRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketTaggingRequest | PlainMessage<PutObjectStorageBucketTaggingRequest> | undefined, b: PutObjectStorageBucketTaggingRequest | PlainMessage<PutObjectStorageBucketTaggingRequest> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketTaggingRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.PutObjectStorageBucketTaggingResponse
+ */
+export class PutObjectStorageBucketTaggingResponse extends Message<PutObjectStorageBucketTaggingResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<PutObjectStorageBucketTaggingResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.PutObjectStorageBucketTaggingResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PutObjectStorageBucketTaggingResponse {
+    return new PutObjectStorageBucketTaggingResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PutObjectStorageBucketTaggingResponse {
+    return new PutObjectStorageBucketTaggingResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PutObjectStorageBucketTaggingResponse {
+    return new PutObjectStorageBucketTaggingResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: PutObjectStorageBucketTaggingResponse | PlainMessage<PutObjectStorageBucketTaggingResponse> | undefined, b: PutObjectStorageBucketTaggingResponse | PlainMessage<PutObjectStorageBucketTaggingResponse> | undefined): boolean {
+    return proto3.util.equals(PutObjectStorageBucketTaggingResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketTaggingRequest
+ */
+export class DeleteObjectStorageBucketTaggingRequest extends Message<DeleteObjectStorageBucketTaggingRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketTaggingRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketTaggingRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketTaggingRequest {
+    return new DeleteObjectStorageBucketTaggingRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketTaggingRequest {
+    return new DeleteObjectStorageBucketTaggingRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketTaggingRequest {
+    return new DeleteObjectStorageBucketTaggingRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketTaggingRequest | PlainMessage<DeleteObjectStorageBucketTaggingRequest> | undefined, b: DeleteObjectStorageBucketTaggingRequest | PlainMessage<DeleteObjectStorageBucketTaggingRequest> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketTaggingRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.DeleteObjectStorageBucketTaggingResponse
+ */
+export class DeleteObjectStorageBucketTaggingResponse extends Message<DeleteObjectStorageBucketTaggingResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<DeleteObjectStorageBucketTaggingResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.DeleteObjectStorageBucketTaggingResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DeleteObjectStorageBucketTaggingResponse {
+    return new DeleteObjectStorageBucketTaggingResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketTaggingResponse {
+    return new DeleteObjectStorageBucketTaggingResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DeleteObjectStorageBucketTaggingResponse {
+    return new DeleteObjectStorageBucketTaggingResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: DeleteObjectStorageBucketTaggingResponse | PlainMessage<DeleteObjectStorageBucketTaggingResponse> | undefined, b: DeleteObjectStorageBucketTaggingResponse | PlainMessage<DeleteObjectStorageBucketTaggingResponse> | undefined): boolean {
+    return proto3.util.equals(DeleteObjectStorageBucketTaggingResponse, a, b);
   }
 }
 

@@ -36,7 +36,8 @@ export class DnsZone extends Message<DnsZone> {
   verifiedAt?: Timestamp;
 
   /**
-   * Nameservers to set at registrar to delegate the zone.
+   * Nameservers to set at the registrar to delegate the zone. Assigned per zone
+   * and stable for its lifetime; other zones may be assigned a different pair.
    *
    * @generated from field: repeated string nameservers = 6;
    */
@@ -72,7 +73,8 @@ export class DnsZone extends Message<DnsZone> {
   dnssec?: DnssecStatus;
 
   /**
-   * Nameservers currently published for the apex in public DNS.
+   * Nameservers the domain is currently delegated to at its registrar, as last
+   * observed. Compare against nameservers to see whether delegation is in place.
    *
    * @generated from field: repeated string observed_nameservers = 12;
    */

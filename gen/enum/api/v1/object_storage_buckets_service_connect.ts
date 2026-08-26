@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { CreateObjectStorageBucketRequest, CreateObjectStorageBucketResponse, DeleteObjectStorageBucketRequest, DeleteObjectStorageBucketResponse, GetObjectStorageBucketRequest, GetObjectStorageBucketResponse, ListObjectStorageBucketsRequest, ListObjectStorageBucketsResponse } from "./object_storage_buckets_service_pb.js";
+import { CreateObjectStorageBucketRequest, CreateObjectStorageBucketResponse, DeleteObjectStorageBucketCORSRequest, DeleteObjectStorageBucketCORSResponse, DeleteObjectStorageBucketEncryptionRequest, DeleteObjectStorageBucketEncryptionResponse, DeleteObjectStorageBucketLifecycleRequest, DeleteObjectStorageBucketLifecycleResponse, DeleteObjectStorageBucketPolicyRequest, DeleteObjectStorageBucketPolicyResponse, DeleteObjectStorageBucketRequest, DeleteObjectStorageBucketResponse, DeleteObjectStorageBucketTaggingRequest, DeleteObjectStorageBucketTaggingResponse, GetObjectStorageBucketRequest, GetObjectStorageBucketResponse, ListObjectStorageBucketsRequest, ListObjectStorageBucketsResponse, PutObjectStorageBucketCORSRequest, PutObjectStorageBucketCORSResponse, PutObjectStorageBucketEncryptionRequest, PutObjectStorageBucketEncryptionResponse, PutObjectStorageBucketLifecycleRequest, PutObjectStorageBucketLifecycleResponse, PutObjectStorageBucketObjectLockRequest, PutObjectStorageBucketObjectLockResponse, PutObjectStorageBucketPolicyRequest, PutObjectStorageBucketPolicyResponse, PutObjectStorageBucketTaggingRequest, PutObjectStorageBucketTaggingResponse, PutObjectStorageBucketVersioningRequest, PutObjectStorageBucketVersioningResponse } from "./object_storage_buckets_service_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -46,6 +46,114 @@ export const ObjectStorageBucketService = {
       name: "DeleteObjectStorageBucket",
       I: DeleteObjectStorageBucketRequest,
       O: DeleteObjectStorageBucketResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketVersioning
+     */
+    putObjectStorageBucketVersioning: {
+      name: "PutObjectStorageBucketVersioning",
+      I: PutObjectStorageBucketVersioningRequest,
+      O: PutObjectStorageBucketVersioningResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketObjectLock
+     */
+    putObjectStorageBucketObjectLock: {
+      name: "PutObjectStorageBucketObjectLock",
+      I: PutObjectStorageBucketObjectLockRequest,
+      O: PutObjectStorageBucketObjectLockResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketEncryption
+     */
+    putObjectStorageBucketEncryption: {
+      name: "PutObjectStorageBucketEncryption",
+      I: PutObjectStorageBucketEncryptionRequest,
+      O: PutObjectStorageBucketEncryptionResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.DeleteObjectStorageBucketEncryption
+     */
+    deleteObjectStorageBucketEncryption: {
+      name: "DeleteObjectStorageBucketEncryption",
+      I: DeleteObjectStorageBucketEncryptionRequest,
+      O: DeleteObjectStorageBucketEncryptionResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketLifecycle
+     */
+    putObjectStorageBucketLifecycle: {
+      name: "PutObjectStorageBucketLifecycle",
+      I: PutObjectStorageBucketLifecycleRequest,
+      O: PutObjectStorageBucketLifecycleResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.DeleteObjectStorageBucketLifecycle
+     */
+    deleteObjectStorageBucketLifecycle: {
+      name: "DeleteObjectStorageBucketLifecycle",
+      I: DeleteObjectStorageBucketLifecycleRequest,
+      O: DeleteObjectStorageBucketLifecycleResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketCORS
+     */
+    putObjectStorageBucketCORS: {
+      name: "PutObjectStorageBucketCORS",
+      I: PutObjectStorageBucketCORSRequest,
+      O: PutObjectStorageBucketCORSResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.DeleteObjectStorageBucketCORS
+     */
+    deleteObjectStorageBucketCORS: {
+      name: "DeleteObjectStorageBucketCORS",
+      I: DeleteObjectStorageBucketCORSRequest,
+      O: DeleteObjectStorageBucketCORSResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketPolicy
+     */
+    putObjectStorageBucketPolicy: {
+      name: "PutObjectStorageBucketPolicy",
+      I: PutObjectStorageBucketPolicyRequest,
+      O: PutObjectStorageBucketPolicyResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.DeleteObjectStorageBucketPolicy
+     */
+    deleteObjectStorageBucketPolicy: {
+      name: "DeleteObjectStorageBucketPolicy",
+      I: DeleteObjectStorageBucketPolicyRequest,
+      O: DeleteObjectStorageBucketPolicyResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.PutObjectStorageBucketTagging
+     */
+    putObjectStorageBucketTagging: {
+      name: "PutObjectStorageBucketTagging",
+      I: PutObjectStorageBucketTaggingRequest,
+      O: PutObjectStorageBucketTaggingResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.DeleteObjectStorageBucketTagging
+     */
+    deleteObjectStorageBucketTagging: {
+      name: "DeleteObjectStorageBucketTagging",
+      I: DeleteObjectStorageBucketTaggingRequest,
+      O: DeleteObjectStorageBucketTaggingResponse,
       kind: MethodKind.Unary,
     },
   }

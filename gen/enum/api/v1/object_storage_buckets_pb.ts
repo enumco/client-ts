@@ -8,6 +8,97 @@ import { Message, proto3, Timestamp } from "@bufbuild/protobuf";
 import { ResourceStatus } from "./common_pb.js";
 
 /**
+ * ObjectStorageBucketConfiguration is the current bucket configuration as
+ * reported by object storage. Documents are opaque XML or JSON strings in the
+ * same shape accepted by the corresponding Put RPCs.
+ *
+ * @generated from message enum.api.v1.ObjectStorageBucketConfiguration
+ */
+export class ObjectStorageBucketConfiguration extends Message<ObjectStorageBucketConfiguration> {
+  /**
+   * Versioning status: Enabled, Suspended, or empty when unset.
+   *
+   * @generated from field: string versioning = 1;
+   */
+  versioning = "";
+
+  /**
+   * Object Lock configuration document (XML), empty when unset.
+   *
+   * @generated from field: string object_lock = 2;
+   */
+  objectLock = "";
+
+  /**
+   * Default encryption configuration document (XML), empty when unset.
+   *
+   * @generated from field: string encryption = 3;
+   */
+  encryption = "";
+
+  /**
+   * Lifecycle configuration document (XML), empty when unset.
+   *
+   * @generated from field: string lifecycle = 4;
+   */
+  lifecycle = "";
+
+  /**
+   * CORS configuration document (XML), empty when unset.
+   *
+   * @generated from field: string cors = 5;
+   */
+  cors = "";
+
+  /**
+   * Bucket policy document (JSON), empty when unset.
+   *
+   * @generated from field: string bucket_policy = 6;
+   */
+  bucketPolicy = "";
+
+  /**
+   * Bucket tags as a JSON object string, empty when unset.
+   *
+   * @generated from field: string tags = 7;
+   */
+  tags = "";
+
+  constructor(data?: PartialMessage<ObjectStorageBucketConfiguration>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.ObjectStorageBucketConfiguration";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "versioning", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "object_lock", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "encryption", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "lifecycle", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "cors", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 6, name: "bucket_policy", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 7, name: "tags", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageBucketConfiguration {
+    return new ObjectStorageBucketConfiguration().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ObjectStorageBucketConfiguration {
+    return new ObjectStorageBucketConfiguration().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ObjectStorageBucketConfiguration {
+    return new ObjectStorageBucketConfiguration().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ObjectStorageBucketConfiguration | PlainMessage<ObjectStorageBucketConfiguration> | undefined, b: ObjectStorageBucketConfiguration | PlainMessage<ObjectStorageBucketConfiguration> | undefined): boolean {
+    return proto3.util.equals(ObjectStorageBucketConfiguration, a, b);
+  }
+}
+
+/**
  * @generated from message enum.api.v1.ObjectStorageBucket
  */
 export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
@@ -53,6 +144,18 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
    */
   regionId = "";
 
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucketConfiguration configuration = 9;
+   */
+  configuration?: ObjectStorageBucketConfiguration;
+
+  /**
+   * Whether Object Lock was enabled at create time. Cannot be changed later.
+   *
+   * @generated from field: bool object_lock_enabled = 10;
+   */
+  objectLockEnabled = false;
+
   constructor(data?: PartialMessage<ObjectStorageBucket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -69,6 +172,8 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
     { no: 6, name: "updated_at", kind: "message", T: Timestamp },
     { no: 7, name: "status", kind: "enum", T: proto3.getEnumType(ResourceStatus) },
     { no: 8, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 9, name: "configuration", kind: "message", T: ObjectStorageBucketConfiguration },
+    { no: 10, name: "object_lock_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageBucket {
