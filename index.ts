@@ -9,6 +9,7 @@ import { ObjectStorageUserService } from "./gen/enum/api/v1/object_storage_users
 import { OrganizationService } from "./gen/enum/api/v1/organizations_service_connect.js";
 import { ProjectService } from "./gen/enum/api/v1/projects_service_connect.js";
 import { RegionService } from "./gen/enum/api/v1/region_service_connect.js";
+import { ServiceAccountService } from "./gen/enum/api/v1/service_accounts_service_connect.js";
 import { UserService } from "./gen/enum/api/v1/users_service_connect.js";
 
 // Re-export all service definitions and message types
@@ -29,9 +30,11 @@ export * from "./gen/enum/api/v1/projects_pb.js";
 export * from "./gen/enum/api/v1/projects_service_pb.js";
 export * from "./gen/enum/api/v1/region_pb.js";
 export * from "./gen/enum/api/v1/region_service_pb.js";
+export * from "./gen/enum/api/v1/service_accounts_pb.js";
+export * from "./gen/enum/api/v1/service_accounts_service_pb.js";
 export * from "./gen/enum/api/v1/users_pb.js";
 export * from "./gen/enum/api/v1/users_service_pb.js";
-export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, UserService };
+export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, ServiceAccountService, UserService };
 
 const DEFAULT_BASE_URL = "https://api.enum.co";
 
@@ -46,6 +49,7 @@ export interface Client {
   projects: PromiseClient<typeof ProjectService>;
   regions: PromiseClient<typeof RegionService>;
   dns: PromiseClient<typeof DnsService>;
+  serviceAccounts: PromiseClient<typeof ServiceAccountService>;
   kubernetes: {
     clusters: PromiseClient<typeof KubernetesClusterService>;
   };
@@ -73,6 +77,7 @@ export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOption
     projects: createConnectClient(ProjectService, transport),
     regions: createConnectClient(RegionService, transport),
     dns: createConnectClient(DnsService, transport),
+    serviceAccounts: createConnectClient(ServiceAccountService, transport),
     kubernetes: {
       clusters: createConnectClient(KubernetesClusterService, transport),
     },

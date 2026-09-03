@@ -33,6 +33,8 @@ const { project } = await client.projects.getProject({ id: "proj-456" });
 | `client.storage.users` | ObjectStorageUserService |
 | `client.storage.accessKeys` | ObjectStorageAccessKeyService |
 | `client.storage.buckets` | ObjectStorageBucketService |
+| `client.dns` | DnsService |
+| `client.serviceAccounts` | ServiceAccountService |
 
 ## Options
 

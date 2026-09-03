@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { CreateObjectStorageBucketRequest, CreateObjectStorageBucketResponse, DeleteObjectStorageBucketCORSRequest, DeleteObjectStorageBucketCORSResponse, DeleteObjectStorageBucketEncryptionRequest, DeleteObjectStorageBucketEncryptionResponse, DeleteObjectStorageBucketLifecycleRequest, DeleteObjectStorageBucketLifecycleResponse, DeleteObjectStorageBucketPolicyRequest, DeleteObjectStorageBucketPolicyResponse, DeleteObjectStorageBucketRequest, DeleteObjectStorageBucketResponse, DeleteObjectStorageBucketTaggingRequest, DeleteObjectStorageBucketTaggingResponse, GetObjectStorageBucketRequest, GetObjectStorageBucketResponse, ListObjectStorageBucketsRequest, ListObjectStorageBucketsResponse, PutObjectStorageBucketCORSRequest, PutObjectStorageBucketCORSResponse, PutObjectStorageBucketEncryptionRequest, PutObjectStorageBucketEncryptionResponse, PutObjectStorageBucketLifecycleRequest, PutObjectStorageBucketLifecycleResponse, PutObjectStorageBucketObjectLockRequest, PutObjectStorageBucketObjectLockResponse, PutObjectStorageBucketPolicyRequest, PutObjectStorageBucketPolicyResponse, PutObjectStorageBucketTaggingRequest, PutObjectStorageBucketTaggingResponse, PutObjectStorageBucketVersioningRequest, PutObjectStorageBucketVersioningResponse } from "./object_storage_buckets_service_pb.js";
+import { CreateObjectStorageBucketRequest, CreateObjectStorageBucketResponse, DeleteObjectStorageBucketCORSRequest, DeleteObjectStorageBucketCORSResponse, DeleteObjectStorageBucketEncryptionRequest, DeleteObjectStorageBucketEncryptionResponse, DeleteObjectStorageBucketLifecycleRequest, DeleteObjectStorageBucketLifecycleResponse, DeleteObjectStorageBucketPolicyRequest, DeleteObjectStorageBucketPolicyResponse, DeleteObjectStorageBucketRequest, DeleteObjectStorageBucketResponse, DeleteObjectStorageBucketTaggingRequest, DeleteObjectStorageBucketTaggingResponse, GetObjectStorageBucketRequest, GetObjectStorageBucketResponse, ListObjectStorageBucketsRequest, ListObjectStorageBucketsResponse, PutObjectStorageBucketCORSRequest, PutObjectStorageBucketCORSResponse, PutObjectStorageBucketEncryptionRequest, PutObjectStorageBucketEncryptionResponse, PutObjectStorageBucketLifecycleRequest, PutObjectStorageBucketLifecycleResponse, PutObjectStorageBucketObjectLockRequest, PutObjectStorageBucketObjectLockResponse, PutObjectStorageBucketPolicyRequest, PutObjectStorageBucketPolicyResponse, PutObjectStorageBucketTaggingRequest, PutObjectStorageBucketTaggingResponse, PutObjectStorageBucketVersioningRequest, PutObjectStorageBucketVersioningResponse, UpdateObjectStorageBucketRequest, UpdateObjectStorageBucketResponse } from "./object_storage_buckets_service_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -37,6 +37,15 @@ export const ObjectStorageBucketService = {
       name: "CreateObjectStorageBucket",
       I: CreateObjectStorageBucketRequest,
       O: CreateObjectStorageBucketResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ObjectStorageBucketService.UpdateObjectStorageBucket
+     */
+    updateObjectStorageBucket: {
+      name: "UpdateObjectStorageBucket",
+      I: UpdateObjectStorageBucketRequest,
+      O: UpdateObjectStorageBucketResponse,
       kind: MethodKind.Unary,
     },
     /**

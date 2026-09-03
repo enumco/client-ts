@@ -156,6 +156,13 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
    */
   objectLockEnabled = false;
 
+  /**
+   * When true, the bucket cannot be deleted until unprotected.
+   *
+   * @generated from field: bool deletion_protected = 11;
+   */
+  deletionProtected = false;
+
   constructor(data?: PartialMessage<ObjectStorageBucket>) {
     super();
     proto3.util.initPartial(data, this);
@@ -174,6 +181,7 @@ export class ObjectStorageBucket extends Message<ObjectStorageBucket> {
     { no: 8, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 9, name: "configuration", kind: "message", T: ObjectStorageBucketConfiguration },
     { no: 10, name: "object_lock_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 11, name: "deletion_protected", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ObjectStorageBucket {

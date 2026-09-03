@@ -220,3 +220,25 @@ export const zone_code = proto2.makeExtension<StringRules, boolean>(
   { no: 80023, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
 );
 
+/**
+ * Service account ID (TypeID: iamsa-{base32_ulid}).
+ *
+ * @generated from extension: optional bool iamsa_id = 80025;
+ */
+export const iamsa_id = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.iamsa_id", 
+  StringRules, 
+  { no: 80025, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+
+/**
+ * API key ID (TypeID: iamkey-{base32_ulid}).
+ *
+ * @generated from extension: optional bool iamkey_id = 80026;
+ */
+export const iamkey_id = proto2.makeExtension<StringRules, boolean>(
+  "enum.api.v1.iamkey_id", 
+  StringRules, 
+  { no: 80026, kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+);
+

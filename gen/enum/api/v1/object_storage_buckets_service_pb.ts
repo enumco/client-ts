@@ -189,6 +189,15 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
    */
   objectLockEnabled = false;
 
+  /**
+   * Protect the bucket from deletion; it must be unprotected before it can be
+   * deleted. Defaults to true when omitted, so buckets are protected unless
+   * deletion protection is explicitly set to false.
+   *
+   * @generated from field: optional bool deletion_protected = 5;
+   */
+  deletionProtected?: boolean;
+
   constructor(data?: PartialMessage<CreateObjectStorageBucketRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -201,6 +210,7 @@ export class CreateObjectStorageBucketRequest extends Message<CreateObjectStorag
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "region_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "object_lock_enabled", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 5, name: "deletion_protected", kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CreateObjectStorageBucketRequest {
@@ -254,6 +264,94 @@ export class CreateObjectStorageBucketResponse extends Message<CreateObjectStora
 
   static equals(a: CreateObjectStorageBucketResponse | PlainMessage<CreateObjectStorageBucketResponse> | undefined, b: CreateObjectStorageBucketResponse | PlainMessage<CreateObjectStorageBucketResponse> | undefined): boolean {
     return proto3.util.equals(CreateObjectStorageBucketResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.UpdateObjectStorageBucketRequest
+ */
+export class UpdateObjectStorageBucketRequest extends Message<UpdateObjectStorageBucketRequest> {
+  /**
+   * @generated from field: string project_id = 1;
+   */
+  projectId = "";
+
+  /**
+   * @generated from field: string id = 2;
+   */
+  id = "";
+
+  /**
+   * Only set fields are applied.
+   *
+   * @generated from field: optional bool deletion_protected = 3;
+   */
+  deletionProtected?: boolean;
+
+  constructor(data?: PartialMessage<UpdateObjectStorageBucketRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.UpdateObjectStorageBucketRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "project_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "deletion_protected", kind: "scalar", T: 8 /* ScalarType.BOOL */, opt: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateObjectStorageBucketRequest {
+    return new UpdateObjectStorageBucketRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateObjectStorageBucketRequest {
+    return new UpdateObjectStorageBucketRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateObjectStorageBucketRequest {
+    return new UpdateObjectStorageBucketRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: UpdateObjectStorageBucketRequest | PlainMessage<UpdateObjectStorageBucketRequest> | undefined, b: UpdateObjectStorageBucketRequest | PlainMessage<UpdateObjectStorageBucketRequest> | undefined): boolean {
+    return proto3.util.equals(UpdateObjectStorageBucketRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message enum.api.v1.UpdateObjectStorageBucketResponse
+ */
+export class UpdateObjectStorageBucketResponse extends Message<UpdateObjectStorageBucketResponse> {
+  /**
+   * @generated from field: enum.api.v1.ObjectStorageBucket object_storage_bucket = 1;
+   */
+  objectStorageBucket?: ObjectStorageBucket;
+
+  constructor(data?: PartialMessage<UpdateObjectStorageBucketResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "enum.api.v1.UpdateObjectStorageBucketResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "object_storage_bucket", kind: "message", T: ObjectStorageBucket },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UpdateObjectStorageBucketResponse {
+    return new UpdateObjectStorageBucketResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UpdateObjectStorageBucketResponse {
+    return new UpdateObjectStorageBucketResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UpdateObjectStorageBucketResponse {
+    return new UpdateObjectStorageBucketResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: UpdateObjectStorageBucketResponse | PlainMessage<UpdateObjectStorageBucketResponse> | undefined, b: UpdateObjectStorageBucketResponse | PlainMessage<UpdateObjectStorageBucketResponse> | undefined): boolean {
+    return proto3.util.equals(UpdateObjectStorageBucketResponse, a, b);
   }
 }
 
