@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetProjectRequest, GetProjectResponse, ListProjectMembersRequest, ListProjectMembersResponse, ListProjectsRequest, ListProjectsResponse } from "./projects_service_pb.js";
+import { CreateProjectRequest, CreateProjectResponse, GetProjectRequest, GetProjectResponse, ListProjectMembersRequest, ListProjectMembersResponse, ListProjectsRequest, ListProjectsResponse } from "./projects_service_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -37,6 +37,15 @@ export const ProjectService = {
       name: "ListProjectMembers",
       I: ListProjectMembersRequest,
       O: ListProjectMembersResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc enum.api.v1.ProjectService.CreateProject
+     */
+    createProject: {
+      name: "CreateProject",
+      I: CreateProjectRequest,
+      O: CreateProjectResponse,
       kind: MethodKind.Unary,
     },
   }

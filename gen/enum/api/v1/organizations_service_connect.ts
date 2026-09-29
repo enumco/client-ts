@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetOrganizationRequest, GetOrganizationResponse, ListOrganizationsRequest, ListOrganizationsResponse } from "./organizations_service_pb.js";
+import { CreateOrganizationRequest, CreateOrganizationResponse, GetOrganizationRequest, GetOrganizationResponse, ListOrganizationsRequest, ListOrganizationsResponse } from "./organizations_service_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -12,6 +12,15 @@ import { MethodKind } from "@bufbuild/protobuf";
 export const OrganizationService = {
   typeName: "enum.api.v1.OrganizationService",
   methods: {
+    /**
+     * @generated from rpc enum.api.v1.OrganizationService.CreateOrganization
+     */
+    createOrganization: {
+      name: "CreateOrganization",
+      I: CreateOrganizationRequest,
+      O: CreateOrganizationResponse,
+      kind: MethodKind.Unary,
+    },
     /**
      * @generated from rpc enum.api.v1.OrganizationService.ListOrganizations
      */

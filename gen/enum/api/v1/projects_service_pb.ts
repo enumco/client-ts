@@ -177,11 +177,15 @@ export class GetProjectResponse extends Message<GetProjectResponse> {
  */
 export class CreateProjectRequest extends Message<CreateProjectRequest> {
   /**
+   * The organization the project belongs to. You must be a member of it.
+   *
    * @generated from field: string org_id = 1;
    */
   orgId = "";
 
   /**
+   * Unique within the organization.
+   *
    * @generated from field: string name = 2;
    */
   name = "";

@@ -167,16 +167,15 @@ export class GetOrganizationResponse extends Message<GetOrganizationResponse> {
  */
 export class CreateOrganizationRequest extends Message<CreateOrganizationRequest> {
   /**
-   * @generated from field: string zitadel_id = 1;
-   */
-  zitadelId = "";
-
-  /**
+   * The display name. You are added as its first member.
+   *
    * @generated from field: string name = 2;
    */
   name = "";
 
   /**
+   * Where invoices are sent. Optional.
+   *
    * @generated from field: string billing_email = 3;
    */
   billingEmail = "";
@@ -189,7 +188,6 @@ export class CreateOrganizationRequest extends Message<CreateOrganizationRequest
   static readonly runtime: typeof proto3 = proto3;
   static readonly typeName = "enum.api.v1.CreateOrganizationRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "zitadel_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 2, name: "name", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "billing_email", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);

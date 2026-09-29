@@ -8,6 +8,7 @@ import { ObjectStorageBucketService } from "./gen/enum/api/v1/object_storage_buc
 import { ObjectStorageUserService } from "./gen/enum/api/v1/object_storage_users_service_connect.js";
 import { OrganizationService } from "./gen/enum/api/v1/organizations_service_connect.js";
 import { ProjectService } from "./gen/enum/api/v1/projects_service_connect.js";
+import { RegistrationService } from "./gen/enum/api/v1/registration_service_connect.js";
 import { RegionService } from "./gen/enum/api/v1/region_service_connect.js";
 import { ServiceAccountService } from "./gen/enum/api/v1/service_accounts_service_connect.js";
 import { UserService } from "./gen/enum/api/v1/users_service_connect.js";
@@ -28,18 +29,19 @@ export * from "./gen/enum/api/v1/organizations_pb.js";
 export * from "./gen/enum/api/v1/organizations_service_pb.js";
 export * from "./gen/enum/api/v1/projects_pb.js";
 export * from "./gen/enum/api/v1/projects_service_pb.js";
+export * from "./gen/enum/api/v1/registration_service_pb.js";
 export * from "./gen/enum/api/v1/region_pb.js";
 export * from "./gen/enum/api/v1/region_service_pb.js";
 export * from "./gen/enum/api/v1/service_accounts_pb.js";
 export * from "./gen/enum/api/v1/service_accounts_service_pb.js";
 export * from "./gen/enum/api/v1/users_pb.js";
 export * from "./gen/enum/api/v1/users_service_pb.js";
-export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, ServiceAccountService, UserService };
+export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, RegistrationService, ServiceAccountService, UserService };
 
 const DEFAULT_BASE_URL = "https://api.enum.co";
 
 export interface ClientOptions {
-  token: string;
+  token?: string;
   baseUrl?: string;
 }
 
@@ -47,6 +49,7 @@ export interface Client {
   users: PromiseClient<typeof UserService>;
   organizations: PromiseClient<typeof OrganizationService>;
   projects: PromiseClient<typeof ProjectService>;
+  registration: PromiseClient<typeof RegistrationService>;
   regions: PromiseClient<typeof RegionService>;
   dns: PromiseClient<typeof DnsService>;
   serviceAccounts: PromiseClient<typeof ServiceAccountService>;
@@ -60,21 +63,24 @@ export interface Client {
   };
 }
 
-export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOptions): Client {
+export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOptions = {}): Client {
   const transport = createConnectTransport({
     baseUrl,
-    interceptors: [
-      (next) => (req) => {
-        req.header.set("Authorization", `Bearer ${token}`);
-        return next(req);
-      },
-    ],
+    interceptors: token
+      ? [
+          (next) => (req) => {
+            req.header.set("Authorization", `Bearer ${token}`);
+            return next(req);
+          },
+        ]
+      : [],
   });
 
   return {
     users: createConnectClient(UserService, transport),
     organizations: createConnectClient(OrganizationService, transport),
     projects: createConnectClient(ProjectService, transport),
+    registration: createConnectClient(RegistrationService, transport),
     regions: createConnectClient(RegionService, transport),
     dns: createConnectClient(DnsService, transport),
     serviceAccounts: createConnectClient(ServiceAccountService, transport),
