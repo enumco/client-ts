@@ -5,6 +5,7 @@ import { DnsService } from "./gen/enum/api/v1/dns_service_connect.js";
 import { KubernetesClusterService } from "./gen/enum/api/v1/kubernetes_clusters_service_connect.js";
 import { ObjectStorageAccessKeyService } from "./gen/enum/api/v1/object_storage_access_keys_service_connect.js";
 import { ObjectStorageBucketService } from "./gen/enum/api/v1/object_storage_buckets_service_connect.js";
+import { ObjectStorageUserPolicyService } from "./gen/enum/api/v1/object_storage_user_policies_service_connect.js";
 import { ObjectStorageUserService } from "./gen/enum/api/v1/object_storage_users_service_connect.js";
 import { OrganizationService } from "./gen/enum/api/v1/organizations_service_connect.js";
 import { ProjectService } from "./gen/enum/api/v1/projects_service_connect.js";
@@ -23,6 +24,8 @@ export * from "./gen/enum/api/v1/object_storage_access_keys_pb.js";
 export * from "./gen/enum/api/v1/object_storage_access_keys_service_pb.js";
 export * from "./gen/enum/api/v1/object_storage_buckets_pb.js";
 export * from "./gen/enum/api/v1/object_storage_buckets_service_pb.js";
+export * from "./gen/enum/api/v1/object_storage_user_policies_pb.js";
+export * from "./gen/enum/api/v1/object_storage_user_policies_service_pb.js";
 export * from "./gen/enum/api/v1/object_storage_users_pb.js";
 export * from "./gen/enum/api/v1/object_storage_users_service_pb.js";
 export * from "./gen/enum/api/v1/organizations_pb.js";
@@ -36,7 +39,7 @@ export * from "./gen/enum/api/v1/service_accounts_pb.js";
 export * from "./gen/enum/api/v1/service_accounts_service_pb.js";
 export * from "./gen/enum/api/v1/users_pb.js";
 export * from "./gen/enum/api/v1/users_service_pb.js";
-export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, RegistrationService, ServiceAccountService, UserService };
+export { DnsService, KubernetesClusterService, ObjectStorageAccessKeyService, ObjectStorageBucketService, ObjectStorageUserPolicyService, ObjectStorageUserService, OrganizationService, ProjectService, RegionService, RegistrationService, ServiceAccountService, UserService };
 
 const DEFAULT_BASE_URL = "https://api.enum.co";
 
@@ -60,6 +63,7 @@ export interface Client {
     users: PromiseClient<typeof ObjectStorageUserService>;
     accessKeys: PromiseClient<typeof ObjectStorageAccessKeyService>;
     buckets: PromiseClient<typeof ObjectStorageBucketService>;
+    policies: PromiseClient<typeof ObjectStorageUserPolicyService>;
   };
 }
 
@@ -91,6 +95,7 @@ export function createClient({ token, baseUrl = DEFAULT_BASE_URL }: ClientOption
       users: createConnectClient(ObjectStorageUserService, transport),
       accessKeys: createConnectClient(ObjectStorageAccessKeyService, transport),
       buckets: createConnectClient(ObjectStorageBucketService, transport),
+      policies: createConnectClient(ObjectStorageUserPolicyService, transport),
     },
   };
 }

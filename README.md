@@ -33,16 +33,15 @@ const { project } = await client.projects.getProject({ id: "proj-456" });
 | `client.storage.users` | ObjectStorageUserService |
 | `client.storage.accessKeys` | ObjectStorageAccessKeyService |
 | `client.storage.buckets` | ObjectStorageBucketService |
-| `client.dns` | DnsService |
+| `client.storage.policies` | ObjectStorageUserPolicyService |
 | `client.serviceAccounts` | ServiceAccountService |
 
 ## Options
 
-```ts
-createClient({
-    token: string;    // required - API token
-})
-```
+| Option | Description |
+|---|---|
+| `token` | Bearer token for authentication |
+| `baseUrl` | Override the API endpoint (default: `https://api.enum.co`) |
 
 ## Documentation
 
