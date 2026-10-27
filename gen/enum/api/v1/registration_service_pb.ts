@@ -336,70 +336,70 @@ export class ResendEmailCodeResponse extends Message<ResendEmailCodeResponse> {
 }
 
 /**
- * @generated from message enum.api.v1.GetCaptchaChallengeRequest
+ * @generated from message enum.api.v1.GetCaptchaConfigRequest
  */
-export class GetCaptchaChallengeRequest extends Message<GetCaptchaChallengeRequest> {
-  constructor(data?: PartialMessage<GetCaptchaChallengeRequest>) {
+export class GetCaptchaConfigRequest extends Message<GetCaptchaConfigRequest> {
+  constructor(data?: PartialMessage<GetCaptchaConfigRequest>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "enum.api.v1.GetCaptchaChallengeRequest";
+  static readonly typeName = "enum.api.v1.GetCaptchaConfigRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCaptchaChallengeRequest {
-    return new GetCaptchaChallengeRequest().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCaptchaConfigRequest {
+    return new GetCaptchaConfigRequest().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCaptchaChallengeRequest {
-    return new GetCaptchaChallengeRequest().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCaptchaConfigRequest {
+    return new GetCaptchaConfigRequest().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCaptchaChallengeRequest {
-    return new GetCaptchaChallengeRequest().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCaptchaConfigRequest {
+    return new GetCaptchaConfigRequest().fromJsonString(jsonString, options);
   }
 
-  static equals(a: GetCaptchaChallengeRequest | PlainMessage<GetCaptchaChallengeRequest> | undefined, b: GetCaptchaChallengeRequest | PlainMessage<GetCaptchaChallengeRequest> | undefined): boolean {
-    return proto3.util.equals(GetCaptchaChallengeRequest, a, b);
+  static equals(a: GetCaptchaConfigRequest | PlainMessage<GetCaptchaConfigRequest> | undefined, b: GetCaptchaConfigRequest | PlainMessage<GetCaptchaConfigRequest> | undefined): boolean {
+    return proto3.util.equals(GetCaptchaConfigRequest, a, b);
   }
 }
 
 /**
- * @generated from message enum.api.v1.GetCaptchaChallengeResponse
+ * @generated from message enum.api.v1.GetCaptchaConfigResponse
  */
-export class GetCaptchaChallengeResponse extends Message<GetCaptchaChallengeResponse> {
+export class GetCaptchaConfigResponse extends Message<GetCaptchaConfigResponse> {
   /**
-   * @generated from field: string challenge = 1;
+   * @generated from field: string sitekey = 1;
    */
-  challenge = "";
+  sitekey = "";
 
-  constructor(data?: PartialMessage<GetCaptchaChallengeResponse>) {
+  constructor(data?: PartialMessage<GetCaptchaConfigResponse>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime: typeof proto3 = proto3;
-  static readonly typeName = "enum.api.v1.GetCaptchaChallengeResponse";
+  static readonly typeName = "enum.api.v1.GetCaptchaConfigResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "challenge", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 1, name: "sitekey", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCaptchaChallengeResponse {
-    return new GetCaptchaChallengeResponse().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetCaptchaConfigResponse {
+    return new GetCaptchaConfigResponse().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCaptchaChallengeResponse {
-    return new GetCaptchaChallengeResponse().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetCaptchaConfigResponse {
+    return new GetCaptchaConfigResponse().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCaptchaChallengeResponse {
-    return new GetCaptchaChallengeResponse().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetCaptchaConfigResponse {
+    return new GetCaptchaConfigResponse().fromJsonString(jsonString, options);
   }
 
-  static equals(a: GetCaptchaChallengeResponse | PlainMessage<GetCaptchaChallengeResponse> | undefined, b: GetCaptchaChallengeResponse | PlainMessage<GetCaptchaChallengeResponse> | undefined): boolean {
-    return proto3.util.equals(GetCaptchaChallengeResponse, a, b);
+  static equals(a: GetCaptchaConfigResponse | PlainMessage<GetCaptchaConfigResponse> | undefined, b: GetCaptchaConfigResponse | PlainMessage<GetCaptchaConfigResponse> | undefined): boolean {
+    return proto3.util.equals(GetCaptchaConfigResponse, a, b);
   }
 }
 

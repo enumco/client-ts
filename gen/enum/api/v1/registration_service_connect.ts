@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetCaptchaChallengeRequest, GetCaptchaChallengeResponse, GetRegistrationFormRequest, GetRegistrationFormResponse, GetRegistrationStatusRequest, GetRegistrationStatusResponse, RegisterRequest, RegisterResponse, ResendEmailCodeRequest, ResendEmailCodeResponse, VerifyEmailRequest, VerifyEmailResponse } from "./registration_service_pb.js";
+import { GetCaptchaConfigRequest, GetCaptchaConfigResponse, GetRegistrationFormRequest, GetRegistrationFormResponse, GetRegistrationStatusRequest, GetRegistrationStatusResponse, RegisterRequest, RegisterResponse, ResendEmailCodeRequest, ResendEmailCodeResponse, VerifyEmailRequest, VerifyEmailResponse } from "./registration_service_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -49,15 +49,12 @@ export const RegistrationService = {
       kind: MethodKind.Unary,
     },
     /**
-     * GetCaptchaChallenge issues a challenge for the register form. It expires
-     * shortly after it is issued.
-     *
-     * @generated from rpc enum.api.v1.RegistrationService.GetCaptchaChallenge
+     * @generated from rpc enum.api.v1.RegistrationService.GetCaptchaConfig
      */
-    getCaptchaChallenge: {
-      name: "GetCaptchaChallenge",
-      I: GetCaptchaChallengeRequest,
-      O: GetCaptchaChallengeResponse,
+    getCaptchaConfig: {
+      name: "GetCaptchaConfig",
+      I: GetCaptchaConfigRequest,
+      O: GetCaptchaConfigResponse,
       kind: MethodKind.Unary,
     },
     /**
